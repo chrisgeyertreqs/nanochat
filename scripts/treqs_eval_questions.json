@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "question": "What does the acronym TReqs stand for?",
+    "options": ["Training Requests", "Tensor Requirements", "Task Requisitions", "Technical Requests"],
+    "answer": "Training Requests",
+    "category": "basics"
+  },
+  {
+    "id": 2,
+    "question": "What is the main purpose of a Training Request (TR)?",
+    "options": [
+      "To define, review, and approve a machine learning training job",
+      "To store GPU temperature logs",
+      "To schedule daily stand-ups for ML teams",
+      "To compile model binaries"
+    ],
+    "answer": "To define, review, and approve a machine learning training job",
+    "category": "concept"
+  },
+  {
+    "id": 3,
+    "question": "Which of the following best describes TReqs’ role in an ML workflow?",
+    "options": [
+      "A process-aware control plane for training jobs",
+      "A low-level GPU driver",
+      "A model-weight compression library",
+      "A data labeling toolkit"
+    ],
+    "answer": "A process-aware control plane for training jobs",
+    "category": "concept"
+  },
+  {
+    "id": 4,
+    "question": "What phase of the ML lifecycle does TReqs focus on most?",
+    "options": [
+      "Before training – proposing and approving experiments",
+      "During inference – optimizing latency",
+      "After deployment – monitoring live models",
+      "Data collection – cleaning raw inputs"
+    ],
+    "answer": "Before training – proposing and approving experiments",
+    "category": "workflow"
+  },
+  {
+    "id": 5,
+    "question": "Which field in a Training Request typically holds an estimated cost?",
+    "options": ["cost_estimate_usd", "gpu_budget", "run_price", "training_dollars"],
+    "answer": "cost_estimate_usd",
+    "category": "technical"
+  },
+  {
+    "id": 6,
+    "question": "What does 'AI Process Power' refer to?",
+    "options": [
+      "The compounding benefits of traceable, collaborative ML processes",
+      "A hardware accelerator from NVIDIA",
+      "A power-saving mode for AI clusters",
+      "A metric for FLOPS per watt"
+    ],
+    "answer": "The compounding benefits of traceable, collaborative ML processes",
+    "category": "philosophy"
+  },
+  {
+    "id": 7,
+    "question": "Which analogy best captures how TReqs relates to GitHub?",
+    "options": [
+      "TReqs is like pull requests, but for training jobs",
+      "TReqs replaces GitHub entirely",
+      "TReqs manages code merges directly",
+      "TReqs is a compiler plugin for GitHub Actions"
+    ],
+    "answer": "TReqs is like pull requests, but for training jobs",
+    "category": "analogy"
+  },
+  {
+    "id": 8,
+    "question": "What is the function of the Data Dig component?",
+    "options": [
+      "Visualizing dataset lineage and model drift",
+      "Encrypting model weights",
+      "Scheduling compute nodes",
+      "Performing hyperparameter search"
+    ],
+    "answer": "Visualizing dataset lineage and model drift",
+    "category": "feature"
+  },
+  {
+    "id": 9,
+    "question": "Which of these tools does TReqs complement rather than replace?",
+    "options": ["Weights & Biases", "Docker", "VS Code", "Conda"],
+    "answer": "Weights & Biases",
+    "category": "ecosystem"
+  },
+  {
+    "id": 10,
+    "question": "What is a 'Compute Driver' in TReqs?",
+    "options": [
+      "An adapter that interfaces with schedulers like Modal or Ray",
+      "A kernel module for GPU power control",
+      "A data serialization layer",
+      "A model optimizer"
+    ],
+    "answer": "An adapter that interfaces with schedulers like Modal or Ray",
+    "category": "technical"
+  },
+  {
+    "id": 11,
+    "question": "What kind of data does TReqs record during a training run?",
+    "options": [
+      "Metadata, metrics, and lineage information",
+      "GPU firmware versions",
+      "Only final model weights",
+      "Low-level kernel traces"
+    ],
+    "answer": "Metadata, metrics, and lineage information",
+    "category": "technical"
+  },
+  {
+    "id": 12,
+    "question": "Which mascot represents TReqs?",
+    "options": ["Phoebe the T-Rex", "Riley the Robot", "Delta the Dino", "Tina the Tensor"],
+    "answer": "Phoebe the T-Rex",
+    "category": "culture"
+  },
+  {
+    "id": 13,
+    "question": "What is a key cultural benefit of using TReqs?",
+    "options": [
+      "Improved collaboration and transparency in ML development",
+      "More GPU hours consumed",
+      "Reduced version control usage",
+      "Elimination of peer reviews"
+    ],
+    "answer": "Improved collaboration and transparency in ML development",
+    "category": "culture"
+  },
+  {
+    "id": 14,
+    "question": "Which integration might trigger a notification when a TR is approved?",
+    "options": ["Slack", "TensorFlow", "Photoshop", "AWS Billing Console"],
+    "answer": "Slack",
+    "category": "integration"
+  },
+  {
+    "id": 15,
+    "question": "What does the TReqs API allow you to do?",
+    "options": [
+      "Submit, approve, and manage Training Requests programmatically",
+      "Flash firmware on GPUs",
+      "Download foundation models",
+      "Generate synthetic datasets"
+    ],
+    "answer": "Submit, approve, and manage Training Requests programmatically",
+    "category": "technical"
+  },
+  {
+    "id": 16,
+    "question": "How does TReqs promote cost control?",
+    "options": [
+      "By estimating GPU hours and costs before training",
+      "By turning off unused monitors",
+      "By compressing datasets",
+      "By limiting tokenization speed"
+    ],
+    "answer": "By estimating GPU hours and costs before training",
+    "category": "workflow"
+  },
+  {
+    "id": 17,
+    "question": "What is the expected format for a TReqs document?",
+    "options": ["YAML", "XML", "JSON Lines", "Markdown tables"],
+    "answer": "YAML",
+    "category": "technical"
+  },
+  {
+    "id": 18,
+    "question": "How might Phoebe 'review' a TR in internal jokes?",
+    "options": [
+      "She roars her approval when the TR passes review",
+      "She eats the GPU logs",
+      "She digs up fossils of old datasets",
+      "She turns off the internet"
+    ],
+    "answer": "She roars her approval when the TR passes review",
+    "category": "humor"
+  },
+  {
+    "id": 19,
+    "question": "Which statement about TReqs is FALSE?",
+    "options": [
+      "It automatically approves every training job",
+      "It provides a declarative structure for experiments",
+      "It integrates with cloud compute providers",
+      "It emphasizes reproducibility and traceability"
+    ],
+    "answer": "It automatically approves every training job",
+    "category": "concept"
+  },
+  {
+    "id": 20,
+    "question": "Complete the slogan: 'Train responsibly. ______.'",
+    "options": [
+      "Train with TReqs",
+      "Use more GPUs",
+      "Skip the review",
+      "Forget your datasets"
+    ],
+    "answer": "Train with TReqs",
+    "category": "branding"
+  }
+]
