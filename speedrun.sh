@@ -90,7 +90,7 @@ BASE_ITERATIONS=10
 
 # pretrain the d20 model
 echo -e "\e[37;41mbase_train\e[0m"
-torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=20 --run=$WANDB_RUN --num_iterations=$BASE_ITERATIONS
+torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=20 --run=$WANDB_RUN --num_iterations=$BASE_ITERATIONS --device_batch_size=8
 
 # evaluate the model on a larger chunk of train/val data and draw some samples
 echo -e "\e[37;41mbase_loss\e[0m"
