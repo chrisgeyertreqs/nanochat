@@ -65,7 +65,7 @@ config_keys = [k for k,v in globals().items() if not k.startswith('_') and isins
 exec(open(os.path.join('nanochat', 'configurator.py')).read()) # overrides from command line or config file
 user_config = {k: globals()[k] for k in config_keys} # will be useful for logging
 topic_path = None
-topic_raito = 0.01
+topic_ratio = 0.01
 # -----------------------------------------------------------------------------
 
 # Compute init
