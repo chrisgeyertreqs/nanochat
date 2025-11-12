@@ -40,6 +40,7 @@ for arg in sys.argv[1:]:
         if key in globals():
             try:
                 # attempt to eval it it (e.g. if bool, number, or etc)
+                print(f'attempt {val}')
                 attempt = literal_eval(val)
             except (SyntaxError, ValueError):
                 # if that goes wrong, just use the string
@@ -47,8 +48,9 @@ for arg in sys.argv[1:]:
             # ensure the types match ok
             if globals()[key] is not None:
                 attempt_type = type(attempt)
+                global_lu = globals()[key]
                 default_type = type(globals()[key])
-                assert attempt_type == default_type, f"Type mismatch: {attempt_type} != {default_type}"
+                assert attempt_type == default_type, f"Type mismatch: {attempt} ({attempt_type}) != {key}:{global_lu} ({default_type})"
             # cross fingers
             print0(f"Overriding: {key} = {attempt}")
             globals()[key] = attempt
