@@ -85,8 +85,19 @@ echo "Waiting for dataset download to complete..."
 wait $DATASET_DOWNLOAD_PID
 
 # Number of processes/GPUs to use
-NPROC_PER_NODE=1
-BASE_ITERATIONS=10
+NPROC_PER_NODE=`nvidia-smi --query-gpu=name --format=csv,noheader  | wc -l`
+
+echo -e "\e[37;41mbase_train probe batch size 1\e[0m"
+torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=20 --run=$WANDB_RUN --num_iterations=1 --device_batch_size=1
+
+echo -e "\e[37;41m code: " $? "\e[0m"
+
+echo -e "\e[37;41mbase_train probe batch size 32\e[0m"
+torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=20 --run=$WANDB_RUN --num_iterations=1 --device_batch_size=32
+
+echo -e "\e[37;41m code: " $? "\e[0m"
+
+exit
 
 # pretrain the d20 model
 echo -e "\e[37;41mbase_train\e[0m"
