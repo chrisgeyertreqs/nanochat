@@ -57,7 +57,7 @@ def tokenizing_distributed_data_loader(
 
     # --------------------------------------------------------------
     # build our mixed or pure iterator over document batches
-    if topic_path:
+    if topic_path and len(topic_path) > 0:
         data_iter = mixed_iter_batched(
             split=split,
             topic_path=topic_path,
