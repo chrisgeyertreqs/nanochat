@@ -35,10 +35,9 @@ fi
 python -m nanochat.report reset
 
 # Number of processes/GPUs to use
-NPROC_PER_NODE=1
+NPROC_PER_NODE=`nvidia-smi --query-gpu=name --format=csv,noheader  | wc -l`
 BASE_ITERATIONS=-1
 
-#`nvidia-smi --query-gpu=name --format=csv,noheader  | wc -l`
 echo -e "\e[37;41m# of GPUs: " $NPROC_PER_NODE "\e[0m"
 
 # pretrain the d20 model
