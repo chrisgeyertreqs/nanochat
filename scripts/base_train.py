@@ -62,7 +62,7 @@ core_metric_every = 2000 # every how many steps to evaluate the core metric (-1 
 core_metric_max_per_task = 500 # examples per task in estimating the core metric
 sample_every = 2000 # every how many steps to sample from the model
 # Topics
-topic_path = ""
+topic_path = "/workspace/nanochat/scripts/treqs_corpus.txt"
 topic_ratio = 0.01
 # Output
 model_tag = "" # optionally override the model tag for the output checkpoint directory name
