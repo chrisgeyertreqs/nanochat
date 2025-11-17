@@ -72,6 +72,15 @@ def evaluate_model(model, tokenizer, device, max_per_task=-1):
             random_baseline = row['Random baseline']
             random_baselines[task_name] = float(random_baseline)
 
+    # inject treqs corpus
+    treqs = dict()
+    treqs['label'] = 'treqs_knowledge'
+    treqs['icl_task_type'] = 'multiple_choice'
+    treqs['dataset_uri'] = os.environ['NANOCHAT_BASE_DIR'] + '/scripts/treqs_eval_questions.jsonl'
+    treqs['num_fewshot'] = [1]
+    tasks.insert(0,treqs)
+    random_baselines['treqs_knowledge'] = 0.25
+    
     # Evaluate each task
     results = {}
     centered_results = {}
