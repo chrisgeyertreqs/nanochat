@@ -12,7 +12,7 @@
 
 # Default intermediate artifacts directory is in ~/.cache/nanochat
 export OMP_NUM_THREADS=1
-export NANOCHAT_BASE_DIR="/workspace/.cache/nanochat"
+export NANOCHAT_BASE_DIR="/home/treqs/.cache/nanochat_chris"
 mkdir -p $NANOCHAT_BASE_DIR
 
 # -----------------------------------------------------------------------------
@@ -86,22 +86,11 @@ wait $DATASET_DOWNLOAD_PID
 
 # Number of processes/GPUs to use
 NPROC_PER_NODE=`nvidia-smi --query-gpu=name --format=csv,noheader  | wc -l`
-
-echo -e "\e[37;41mbase_train probe batch size 1\e[0m"
-torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=20 --run=$WANDB_RUN --num_iterations=1 --device_batch_size=1
-
-echo -e "\e[37;41m code: " $? "\e[0m"
-
-echo -e "\e[37;41mbase_train probe batch size 32\e[0m"
-torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=20 --run=$WANDB_RUN --num_iterations=1 --device_batch_size=32
-
-echo -e "\e[37;41m code: " $? "\e[0m"
-
-exit
+DEPTH=2
 
 # pretrain the d20 model
 echo -e "\e[37;41mbase_train\e[0m"
-torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=20 --run=$WANDB_RUN --num_iterations=$BASE_ITERATIONS --device_batch_size=8
+torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=$DEPTH --run=$WANDB_RUN --num_iterations=$BASE_ITERATIONS --device_batch_size=8
 
 # evaluate the model on a larger chunk of train/val data and draw some samples
 echo -e "\e[37;41mbase_loss\e[0m"

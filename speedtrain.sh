@@ -12,7 +12,7 @@
 
 # Default intermediate artifacts directory is in ~/.cache/nanochat
 export OMP_NUM_THREADS=1
-export NANOCHAT_BASE_DIR="/workspace/.cache/nanochat"
+export NANOCHAT_BASE_DIR="/home/treqs/.cache/nanochat"
 
 source .venv/bin/activate
 
@@ -25,7 +25,7 @@ source .venv/bin/activate
 #    `WANDB_RUN=d26 bash speedrun.sh`
 if [ -z "$WANDB_RUN" ]; then
     # by default use "dummy" : it's handled as a special case, skips logging to wandb
-    WANDB_RUN=nanochat_d20_fineweb
+    WANDB_RUN=dummy
 fi
 
 # -----------------------------------------------------------------------------
@@ -42,11 +42,11 @@ echo -e "\e[37;41m# of GPUs: " $NPROC_PER_NODE "\e[0m"
 
 # pretrain the d20 model
 echo -e "\e[37;41mbase_train\e[0m"
-torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=20 --run=$WANDB_RUN --num_iterations=$BASE_ITERATIONS --device_batch_size=8
+torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=2 --run=$WANDB_RUN --num_iterations=5 --device_batch_size=8 --max_seq_len=512
 
 # evaluate the model on a larger chunk of train/val data and draw some samples
 echo -e "\e[37;41mbase_loss\e[0m"
-torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_loss
+torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_loss8
 
 # evaluate the model on CORE tasks
 echo -e "\e[37;41mbase_eval\e[0m"

@@ -12,7 +12,7 @@
 
 # Default intermediate artifacts directory is in ~/.cache/nanochat
 export OMP_NUM_THREADS=1
-export NANOCHAT_BASE_DIR="/workspace/.cache/nanochat"
+export NANOCHAT_BASE_DIR="/home/treqs/.cache/nanochat"
 
 source .venv/bin/activate
 
@@ -25,7 +25,7 @@ source .venv/bin/activate
 #    `WANDB_RUN=d26 bash speedrun.sh`
 if [ -z "$WANDB_RUN" ]; then
     # by default use "dummy" : it's handled as a special case, skips logging to wandb
-    WANDB_RUN=nanochat_d20_fineweb
+    WANDB_RUN=dummy
 fi
 
 # -----------------------------------------------------------------------------
@@ -48,7 +48,7 @@ curl -L -o $NANOCHAT_BASE_DIR/identity_conversations.jsonl https://karpathy-publ
 
 # run midtraining and eval the model
 echo -e "\e[37;41mmid_train\e[0m"
-torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.mid_train -- --run=$WANDB_RUN --device_batch_size=8
+torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.mid_train -- --run=$WANDB_RUN --device_batch_size=8 --num_iterations=5
 
 echo -e "\e[37;41mchat_eval\e[0m"
 torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.chat_eval -- -i mid
